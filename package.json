@@ -1,0 +1,11 @@
+{
+  "name": "downtime-monitoring",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MahmonirB/downtime-monitoring.git",
+  "author": "Mahmonir Bakhtiyari <37932243+MahmonirB@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
