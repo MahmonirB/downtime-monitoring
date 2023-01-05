@@ -1,21 +1,26 @@
-var http = require('http');
-var https = require('https');
+const https = require("https");
+const express = require("express");
 
-test();
+const router = express.Router();
+
+router.post("/", async (req, res) => {
+  const result = await checkWebsite(req.body.url);
+
+  if (result) return res.send("Server is up and running!");
+
+  return res.status(500).send("Server is down!");
+});
 
 function checkWebsite(url) {
-    return new Promise((resolve, reject) => {
-      https
-        .get(url, function(res) {
-          console.log(url, res.statusCode);
-          resolve(res.statusCode === 200);
-        })
-        .on("error", function(e) {
-          resolve(false);
-        });     
-    })
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, function (res) {
+        resolve(res.statusCode === 200);
+      })
+      .on("error", function (e) {
+        resolve(false);
+      });
+  });
 }
-async function test(){
-    var check = await checkWebsite("https://stackoverflow.com/");
-    console.log(check); //true
-}
+
+module.exports = router;
