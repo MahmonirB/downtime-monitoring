@@ -1,9 +1,25 @@
-const express = require('express');
-const home = require('./routes/home');
+const https = require('https');
 
-const app = express();
+const server = https.createServer();
 
-app.use('/', home);
+test();
+
+function checkWebsite(url) {
+    return new Promise((resolve, reject) => {
+      https
+        .get(url, function(res) {
+          console.log(url, res.statusCode);
+          resolve(res.statusCode === 200);
+        })
+        .on("error", function(e) {
+          resolve(false);
+        });     
+    })
+}
+async function test(){
+    var check = await checkWebsite("https://www.digikala.com/");
+    console.log(check); //true
+}
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`listen to server port: ${port} ...`));
+server.listen(port, () => console.log(`listen to server port: ${port} ...`));
