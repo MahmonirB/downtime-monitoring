@@ -5,6 +5,6 @@ mongoose.set("strictQuery", false);
 
 mongoose
   .connect("mongodb://localhost/downTime-monitoring")
-  .then((res) => console.log(res.message));
+  .then((res) => console.log("DB connected ..."));
 
 }
