@@ -1,0 +1,5 @@
+{
+    "EMAIL_HOST_NAME": "starter-email-host-name",
+    "EMAIL_USER_NAME": "starter-email-user-name",
+    "EMAIL_PASSWORD": "starter-password"
+}
