@@ -6,11 +6,13 @@
   "author": "Mahmonir Bakhtiyari <37932243+MahmonirB@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "config": "^3.3.8",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.2",
-    "node-cron": "^3.0.2"
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.8.0"
   }
 }
