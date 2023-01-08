@@ -1,5 +1,7 @@
 const helmet = require("helmet");
 const morgan = require("morgan");
+const debug = require("debug");
+const errorHandling = require("../middleware/errorHandling");
 
 module.exports = function (app) {
   if (app.get("env") === "development") {
@@ -9,4 +11,5 @@ module.exports = function (app) {
   }
 
   app.use(helmet());
+  app.use(errorHandling);
 };
